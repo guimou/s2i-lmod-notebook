@@ -43,5 +43,5 @@ COPY upload/src /tmp/src
 WORKDIR /opt/app-root/src
 RUN chown -R 1001:0 /tmp/scripts /tmp/src
 USER 1001
-#RUN /tmp/scripts/assemble
-#CMD /tmp/scripts/run
+RUN /tmp/scripts/assemble
+CMD /tmp/scripts/run
