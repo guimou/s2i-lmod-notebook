@@ -1,11 +1,5 @@
 FROM quay.io/guimou/s2i-minimal-notebook-f32:0.0.1
 
-ENV JUPYTER_ENABLE_LAB="true" \
-    CRIO_RUNTIME="true" \
-    ENABLE_PIPENV="1" \
-    THOTH_ADVISE="0" \
-    THOTH_DRY_RUN="0" \
-    THOTH_PROVENANCE_CHECK="0"
 USER root
 
 # Install packages
@@ -34,12 +28,20 @@ RUN ./configure --prefix=/opt/apps --with-fastTCLInterp=no && \
 # Cleanup
 RUN rm -rf /build
 
+ENV JUPYTER_ENABLE_LAB="true" \
+    CRIO_RUNTIME="true" \
+    ENABLE_PIPENV="1" \
+    THOTH_ADVISE="0" \
+    THOTH_DRY_RUN="0" \
+    THOTH_PROVENANCE_CHECK="0"
+
 # Copying in override assemble/run scripts
 COPY upload/scripts /tmp/scripts
 # Copying in source code
 COPY upload/src /tmp/src
 # Change file ownership to the assemble user. Builder image must support chown command.
+WORKDIR /opt/app-root/src
 RUN chown -R 1001:0 /tmp/scripts /tmp/src
 USER 1001
-RUN /tmp/scripts/assemble
-CMD /tmp/scripts/run
+#RUN /tmp/scripts/assemble
+#CMD /tmp/scripts/run
