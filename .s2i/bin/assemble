@@ -11,6 +11,7 @@ set -eo pipefail
 # Activate ipywidgets extension.
 
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
+jupyter labextension install jupyterlab-lmod
 
 # Also activate ipywidgets/bokeh extension for JupyterLab.
 
