@@ -5,7 +5,7 @@ set -x
 set -eo pipefail
 
 # Install Lua
-yum install lua
+sudo yum install toto
 
 
 # Execute original assemble script.
