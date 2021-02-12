@@ -2,6 +2,15 @@
 
 ### lmod-notebook
 
+boto3
+notebook
+jupyterhub
+jupyterlab
+jupyterlab-requirements
+jupyter_kernel_gateway
+jupyter-nbrequirements
+supervisor
+elyra
 jupyterlmod
 
 # extensions
