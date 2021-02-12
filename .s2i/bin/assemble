@@ -4,6 +4,9 @@ set -x
 
 set -eo pipefail
 
+# Install Lua
+yum install lua
+
 
 # Execute original assemble script.
 

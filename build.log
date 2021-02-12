@@ -1,7 +1,41 @@
++ set -eo pipefail
++ /opt/app-root/builder/assemble
++ set -eo pipefail
++ APP_ROOT=/opt/app-root
++ /usr/libexec/s2i/assemble
+/tmp/src ~
+>>> Thoth advises are not activated
+~
+---> Installing application source ...
+---> Upgrading pip to version 19.3.1 ...
+Collecting pip==19.3.1
+Downloading pip-19.3.1-py2.py3-none-any.whl (1.4 MB)
+Installing collected packages: pip
+Attempting uninstall: pip
+Found existing installation: pip 20.3.3
+Uninstalling pip-20.3.3:
+Successfully uninstalled pip-20.3.3
+Successfully installed pip-19.3.1
+---> Upgrading pip to latest version ...
+Collecting pip
+Downloading https://files.pythonhosted.org/packages/fe/ef/60d7ba03b5c442309ef42e7d69959f73aacccd0d86008362a681c4698e83/pip-21.0.1-py3-none-any.whl (1.5MB)
+Collecting setuptools
+Downloading https://files.pythonhosted.org/packages/15/0e/255e3d57965f318973e417d5b7034223f1223de500d91b945ddfaef42a37/setuptools-53.0.0-py3-none-any.whl (784kB)
+Requirement already up-to-date: wheel in /opt/app-root/lib/python3.8/site-packages (0.36.2)
+Installing collected packages: pip, setuptools
+Found existing installation: pip 19.3.1
+Uninstalling pip-19.3.1:
+Successfully uninstalled pip-19.3.1
+Found existing installation: setuptools 51.1.1
+Uninstalling setuptools-51.1.1:
+Successfully uninstalled setuptools-51.1.1
+Successfully installed pip-21.0.1 setuptools-53.0.0
+---> Installing dependencies via micropipenv ...
+---------------------------------- Pipfile.lock ----------------------------------
 {
     "_meta": {
         "hash": {
-            "sha256": "890bf6746d903864c20d3036839d90e862aa6d73ccbda5ebca9650dd9b5c816a"
+            "sha256": "776c0d70d7d363a661f813697b2ee48344387ca6a2d81bb1c6f1d8f381d17ace"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -260,12 +294,10 @@
                 "sha256:005a36f41773e148deac64b08f233873a4d0c18b053d37da83f6af4d9087b813",
                 "sha256:0857f0ae312d855239a55c81ef453ee8fd24136eaba8e87a2eceba644c0d4c06",
                 "sha256:1071534bbbf8cbb31b498d5d9db0f274f2f7a865adca4ae429e147ba40f73dea",
-                "sha256:158d0d15119b4b7ff6b926536763dc0714313aa59e320ddf787502c70c4d4bee",
                 "sha256:1f436816fc868b098b0d63b8920de7d208c90a67212546d02f84fe78a9c26396",
                 "sha256:2894f2df484ff56d717bead0a5c2abb6b9d2bf26d6960c4604d5c48bbc30ee73",
                 "sha256:29314480e958fd8aab22e4a58b355b629c59bf5f2ac2492b61e3dc06d8c7a315",
                 "sha256:34eff4b97f3d982fb93e2831e6750127d1355a923ebaeeb565407b3d2f8d41a1",
-                "sha256:35f27e6eb43380fa080dccf676dece30bef72e4a67617ffda586641cd4508d49",
                 "sha256:3d3dd4c9e559eb172ecf00a2a7517e97d1e96de2a5e610bd9b68cea3925b4892",
                 "sha256:43e0b9d9e2c9e5d152946b9c5fe062c151614b262fda2e7b201204de0b99e482",
                 "sha256:48e1c69bbacfc3d932221851b39d49e81567a4d4aac3b21258d9c24578280058",
@@ -277,12 +309,10 @@
                 "sha256:6c97d7350133666fbb5cf4abdc1178c812cb205dc6f41d174a7b0f18fb93337e",
                 "sha256:6e4714cc64f474e4d6e37cfff31a814b509a35cb17de4fb1999907575684479c",
                 "sha256:72d8d3ef52c208ee1c7b2e341f7d71c6fd3157138abf1a95166e6165dd5d4369",
-                "sha256:8ae6299f6c68de06f136f1f9e69458eae58f1dacf10af5c17353eae03aa0d827",
                 "sha256:8b198cec6c72df5289c05b05b8b0969819783f9418e0409865dac47288d2a053",
                 "sha256:99cd03ae7988a93dd00bcd9d0b75e1f6c426063d6f03d2f90b89e29b25b82dfa",
                 "sha256:9cf8022fb8d07a97c178b02327b284521c7708d7c71a9c9c355c178ac4bbd3d4",
                 "sha256:9de2e279153a443c656f2defd67769e6d1e4163952b3c622dcea5b08a6405322",
-                "sha256:9e93e79c2551ff263400e1e4be085a1210e12073a31c2011dbbda14bda0c6132",
                 "sha256:9ff227395193126d82e60319a673a037d5de84633f11279e336f9c0f189ecc62",
                 "sha256:a465da611f6fa124963b91bf432d960a555563efe4ed1cc403ba5077b15370aa",
                 "sha256:ad17025d226ee5beec591b52800c11680fca3df50b8b29fe51d882576e039ee0",
@@ -395,7 +425,7 @@
                 "sha256:fbb17c0d0822684b7d6c09915677a32319f16ff1115df5ec05bdcaaee40b35f3",
                 "sha256:fff1f3a586246110f34dc762098b5afd2de88de507559e63553d7da643053786"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
             "version": "==5.4"
         },
         "cryptography": {
@@ -640,7 +670,7 @@
                 "sha256:1918dea4bfdc5d1a830fcfce9a710d1d809cbed123e85eab0539259cb0f56640",
                 "sha256:1923af00820a8cf58e91d56b89efc59780a6e81363b94464a0f17c039dffff9e"
             ],
-            "markers": "python_version >= '3.3'",
+            "markers": "python_version >= '3.7'",
             "version": "==7.20.0"
         },
         "ipython-genutils": {
@@ -650,20 +680,12 @@
             ],
             "version": "==0.2.0"
         },
-        "ipywidgets": {
-            "hashes": [
-                "sha256:9f1a43e620530f9e570e4a493677d25f08310118d315b00e25a18f12913c41f0",
-                "sha256:e6513cfdaf5878de30f32d57f6dc2474da395a2a2991b94d487406c0ab7f55ca"
-            ],
-            "index": "pypi",
-            "version": "==7.6.3"
-        },
         "isort": {
             "hashes": [
                 "sha256:c729845434366216d320e936b8ad6f9d681aab72dc7cbc2d51bedc3582f3ad1e",
                 "sha256:fff4f0c04e1825522ce6949973e83110a6e907750cd92d128b0d14aaaadbffdc"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4'",
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==5.7.0"
         },
         "jedi": {
@@ -695,7 +717,7 @@
                 "sha256:b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9",
                 "sha256:cdf6525904cc597730141d61b36f2e4b8ecc257c420fa2f4549bac2c2d0cb72f"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==0.10.0"
         },
         "json5": {
@@ -850,7 +872,7 @@
                 "sha256:3cc15d70e121b34d374e6aa8243688732a5732ab22187d342638ebc7fa94bc6d",
                 "sha256:d5c2daced422004643a4eab8e3a5676e204e9df32cae54674684965e2e20870f"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4'",
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==0.30.0b1"
         },
         "jupyterlab-lsp": {
@@ -876,14 +898,6 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2.2.0"
-        },
-        "jupyterlab-widgets": {
-            "hashes": [
-                "sha256:5c1a29a84d3069208cb506b10609175b249b6486d6b1cbae8fcde2a11584fb78",
-                "sha256:caeaf3e6103180e654e7d8d2b81b7d645e59e432487c1d35a41d6d3ee56b3fef"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==1.0.0"
         },
         "jupyterlmod": {
             "hashes": [
@@ -1496,7 +1510,7 @@
                 "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1",
                 "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==2.4.7"
         },
         "pyrsistent": {
@@ -1511,7 +1525,7 @@
                 "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
                 "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==2.8.1"
         },
         "python-editor": {
@@ -1592,40 +1606,41 @@
         },
         "pyzmq": {
             "hashes": [
-                "sha256:13465c1ff969cab328bc92f7015ce3843f6e35f8871ad79d236e4fbc85dbe4cb",
-                "sha256:23a74de4b43c05c3044aeba0d1f3970def8f916151a712a3ac1e5cd9c0bc2902",
-                "sha256:26380487eae4034d6c2a3fb8d0f2dff6dd0d9dd711894e8d25aa2d1938950a33",
-                "sha256:279cc9b51db48bec2db146f38e336049ac5a59e5f12fb3a8ad864e238c1c62e3",
-                "sha256:2f971431aaebe0a8b54ac018e041c2f0b949a43745444e4dadcc80d0f0ef8457",
-                "sha256:30df70f81fe210506aa354d7fd486a39b87d9f7f24c3d3f4f698ec5d96b8c084",
-                "sha256:33acd2b9790818b9d00526135acf12790649d8d34b2b04d64558b469c9d86820",
-                "sha256:38e3dca75d81bec4f2defa14b0a65b74545812bb519a8e89c8df96bbf4639356",
-                "sha256:3e29f9cf85a40d521d048b55c63f59d6c772ac1c4bf51cdfc23b62a62e377c33",
-                "sha256:3ef50d74469b03725d781a2a03c57537d86847ccde587130fe35caafea8f75c6",
-                "sha256:4231943514812dfb74f44eadcf85e8dd8cf302b4d0bce450ce1357cac88dbfdc",
-                "sha256:4f34a173f813b38b83f058e267e30465ed64b22cd0cf6bad21148d3fa718f9bb",
-                "sha256:532af3e6dddea62d9c49062ece5add998c9823c2419da943cf95589f56737de0",
-                "sha256:581787c62eaa0e0db6c5413cedc393ebbadac6ddfd22e1cf9a60da23c4f1a4b2",
-                "sha256:60e63577b85055e4cc43892fecd877b86695ee3ef12d5d10a3c5d6e77a7cc1a3",
-                "sha256:61e4bb6cd60caf1abcd796c3f48395e22c5b486eeca6f3a8797975c57d94b03e",
-                "sha256:6d4163704201fff0f3ab0cd5d7a0ea1514ecfffd3926d62ec7e740a04d2012c7",
-                "sha256:7026f0353977431fc884abd4ac28268894bd1a780ba84bb266d470b0ec26d2ed",
-                "sha256:763c175294d861869f18eb42901d500eda7d3fa4565f160b3b2fd2678ea0ebab",
-                "sha256:81e7df0da456206201e226491aa1fc449da85328bf33bbeec2c03bb3a9f18324",
-                "sha256:9221783dacb419604d5345d0e097bddef4459a9a95322de6c306bf1d9896559f",
-                "sha256:a558c5bc89d56d7253187dccc4e81b5bb0eac5ae9511eb4951910a1245d04622",
-                "sha256:b25e5d339550a850f7e919fe8cb4c8eabe4c917613db48dab3df19bfb9a28969",
-                "sha256:b62ea18c0458a65ccd5be90f276f7a5a3f26a6dea0066d948ce2fa896051420f",
-                "sha256:c0cde362075ee8f3d2b0353b283e203c2200243b5a15d5c5c03b78112a17e7d4",
-                "sha256:d18ddc6741b51f3985978f2fda57ddcdae359662d7a6b395bc8ff2292fca14bd",
-                "sha256:da7d4d4c778c86b60949d17531e60c54ed3726878de8a7f8a6d6e7f8cc8c3205",
-                "sha256:f52070871a0fd90a99130babf21f8af192304ec1e995bec2a9533efc21ea4452",
-                "sha256:f5831eff6b125992ec65d973f5151c48003b6754030094723ac4c6e80a97c8c4",
-                "sha256:f7f63ce127980d40f3e6a5fdb87abf17ce1a7c2bd8bf2c7560e1bbce8ab1f92d",
-                "sha256:ff1ea14075bbddd6f29bf6beb8a46d0db779bcec6b9820909584081ec119f8fd"
+                "sha256:013e1343b41aaeb482f40605f3fadcfeb841706039625d7b30d12ae8fa0d3cd0",
+                "sha256:034f5b9e4ff0bcc67e49fe8f55a1b209ea5761c8fd00c246195c8d0cb6ce096d",
+                "sha256:03c001be8c3817d5721137660ed21d90f6175002f0e583306079c791b1d9a855",
+                "sha256:0b32bd5e7346e534fddb57eab309933ff6b3b177c0106b908b6193dfa75fdabe",
+                "sha256:1ffb81b08bcaaac30ba913adef686ff41b257252e96fca32497029fdc3962ff0",
+                "sha256:303b8ebafce9906fc1e8eb35734b9dba4786ca3da7cdc88e04a8997dde2372d3",
+                "sha256:35c8c5c8160f0f0fc6d4588037243b668c3f20d981c1b8e7b5d9c33f8eeb7eb6",
+                "sha256:37beae88d6cf102419bb0ec79acb19c062dcea6765b57cf2b265dac5542bcdad",
+                "sha256:3f4e6574d2589e3e22514a3669e86a7bf18a95d3c3ae65733fa6a0a769ec4c9d",
+                "sha256:490a9fe5509b09369722b18b85ef494abdf7c51cb1c9484cf83c3921961c2038",
+                "sha256:506d4716ca6e5798345038e75adcb05b4118112a36700941967925285637198b",
+                "sha256:58a074afa254a53872202e92594b59c0ba8cda62effc6437e34ae7048559dd38",
+                "sha256:5a565af3729b2bf7c2ce1d563084d0cd90a312290ba5e571a0c3ec770ea8a287",
+                "sha256:66d1190eec0a78bd07d39d1615b7923190ed1ba8aa04742d963b09bc66628681",
+                "sha256:75b68890219231bd60556a1c6e0d2dc05fa1b179a26c876442c83a0d77958bc9",
+                "sha256:75fa832c79ce30a23cd44a4e89224c651ef6bf5144b842ad066246e914b92233",
+                "sha256:7b6c855c562d1c1bf7a1ba72c2617c8298e0fa1b1c08dc8d60e225031567ad9e",
+                "sha256:841e9563ce9bd33fe9f227ec680ac033e9f1060977d613568c1dcbff09e74cc9",
+                "sha256:849444c1699c244d5770d3a684c51f024e95c538f71dd3d1ff423a91745bab7f",
+                "sha256:86cb0982b02b4fc2fbd4a65155289e0e4e5015982dbe2db14f8856c303cffa08",
+                "sha256:888d850d4b7e1426d210e901bd93075991b36fe0e2ae2547ce5c18b96df95250",
+                "sha256:9bae89912cac9f03d41adb66981f6e753cfd4e451937b2cd435d732fd4ccb1a3",
+                "sha256:b68033181dc2e622bb5baa9b16d5933303779a03dc89860f4c44f629426d802c",
+                "sha256:bc9f2c26485dc76520084ee8d76f18171cc89f24f801bed8402302ee99dbbcd9",
+                "sha256:c2a8d70fe2a321a83d274970481eb244bff027b58511e943ef564721530ba786",
+                "sha256:c6b1d235a08f2c42480cb9a0a5cd2a29c391052d8bc8f43db86aa15387734a33",
+                "sha256:cc814880ba27f2ea8cea48ff3b480076266d4dd9c3fe29ef6e5a0a807639abe7",
+                "sha256:d66724bf0d423aa18c9ea43a1bf24ed5c1d143f00bdace7c1b7fc3034f188cc9",
+                "sha256:d77f6eb839097e4bce96fcac7e05e33b677efe0385bd0ab6c2a9ea818ed7e8f9",
+                "sha256:d7b82a959e5e22d492f4f5a1e650e909a6c8c76ede178f538313ddb9d1e92963",
+                "sha256:f3ad3f77ed6a3cf31f61170fc1733afd83a4cf8e02edde0762d4e630bce2a97e",
+                "sha256:ff236d8653f8bb74198223c7af77b9378714f411d6d95255d97c2d69bf991b20"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==22.0.3"
+            "version": "==22.0.2"
         },
         "readme-renderer": {
             "hashes": [
@@ -1730,7 +1745,7 @@
                 "sha256:3070d53e3a93864de351c1091af1deb25f41e6051b33e485d4626b591c0cfdb3",
                 "sha256:e0f2db62a52536ee32f6f584a47536465872cae2b94887cf1f080fb9eaa13eb2"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4'",
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==9.10.0"
         },
         "rope": {
@@ -1788,7 +1803,7 @@
                 "sha256:e9f7d1d8c26a6a12c23421061f9022bb62704e38211fe375c645485f38df34a2",
                 "sha256:f6061a31880c1ed6b6ce341215336e2f3d0c1deccd84957b6fa8ca474b41e89f"
             ],
-            "markers": "python_version < '3.9' and platform_python_implementation == 'CPython'",
+            "markers": "platform_python_implementation == 'CPython' and python_version < '3.9'",
             "version": "==0.2.2"
         },
         "s3transfer": {
@@ -1833,7 +1848,7 @@
                 "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
                 "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==1.15.0"
         },
         "smmap": {
@@ -1992,7 +2007,7 @@
                 "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
                 "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==0.10.2"
         },
         "tornado": {
@@ -2148,7 +2163,7 @@
                 "sha256:f8aded54c2bc554ce20b397f72101737dd61ee7b81c771684a7dd7805e6cca0c",
                 "sha256:fc51e545d65689c398161f07fd405104956ec27f22453de85898fa088b2cd4bb"
             ],
-            "markers": "python_version >= '3.1'",
+            "markers": "python_version > '3'",
             "version": "==4.0.2"
         },
         "urllib3": {
@@ -2156,7 +2171,7 @@
                 "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80",
                 "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
             "version": "==1.26.3"
         },
         "virtualenv": {
@@ -2218,14 +2233,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==0.36.2"
-        },
-        "widgetsnbextension": {
-            "hashes": [
-                "sha256:079f87d87270bce047512400efd70238820751a11d2d8cb137a5a5bdbaf255c7",
-                "sha256:bd314f8ceb488571a5ffea6cc5b9fc6cba0adaf88a9d2386b93a489751938bcd"
-            ],
-            "index": "pypi",
-            "version": "==3.5.1"
         },
         "wrapt": {
             "hashes": [
@@ -2294,3 +2301,207 @@
     },
     "develop": {}
 }
+---------------------------------- Pipfile.lock ----------------------------------
+Requirement already satisfied: aiohttp==3.7.3 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (3.7.3)
+Collecting alembic==1.5.4
+Downloading alembic-1.5.4.tar.gz (1.1 MB)
+Building wheels for collected packages: alembic
+Building wheel for alembic (setup.py): started
+Building wheel for alembic (setup.py): finished with status 'done'
+Created wheel for alembic: filename=alembic-1.5.4-py2.py3-none-any.whl size=156314 sha256=9938aa3dcbb161e28f730888d81e837d3e610d5428b12c1961bd2df76acd6624
+Stored in directory: /tmp/pip-ephem-wheel-cache-tzu12c3z/wheels/d5/40/ba/991fe3d7f955ab3cbbf536497986fba607754aec6fb867c583
+Successfully built alembic
+Installing collected packages: alembic
+Attempting uninstall: alembic
+Found existing installation: alembic 1.4.3
+Uninstalling alembic-1.4.3:
+Successfully uninstalled alembic-1.4.3
+Successfully installed alembic-1.5.4
+Collecting ansiwrap==0.8.4
+Downloading ansiwrap-0.8.4-py2.py3-none-any.whl (8.5 kB)
+Installing collected packages: ansiwrap
+Successfully installed ansiwrap-0.8.4
+Collecting anyio==2.1.0
+Downloading anyio-2.1.0-py3-none-any.whl (64 kB)
+Installing collected packages: anyio
+Successfully installed anyio-2.1.0
+Requirement already satisfied: appdirs==1.4.4 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (1.4.4)
+Requirement already satisfied: argo-workflows==3.6.1 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (3.6.1)
+Requirement already satisfied: argon2-cffi==20.1.0 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (20.1.0)
+Collecting astroid==2.4.2
+Downloading astroid-2.4.2-py3-none-any.whl (213 kB)
+Installing collected packages: astroid
+Successfully installed astroid-2.4.2
+Requirement already satisfied: async-generator==1.10 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (1.10)
+Requirement already satisfied: async-timeout==3.0.1 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (3.0.1)
+Requirement already satisfied: attrdict==2.0.1 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (2.0.1)
+Requirement already satisfied: attrs==20.3.0 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (20.3.0)
+Collecting autopep8==1.5.5
+Downloading autopep8-1.5.5-py2.py3-none-any.whl (44 kB)
+Installing collected packages: autopep8
+Successfully installed autopep8-1.5.5
+Collecting babel==2.9.0
+Downloading Babel-2.9.0-py2.py3-none-any.whl (8.8 MB)
+Installing collected packages: babel
+Successfully installed babel-2.9.0
+Requirement already satisfied: backcall==0.2.0 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.2.0)
+Requirement already satisfied: beautifulsoup4==4.6.3 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (4.6.3)
+Collecting black==20.8b1
+Downloading black-20.8b1.tar.gz (1.1 MB)
+Installing build dependencies: started
+Installing build dependencies: finished with status 'done'
+Getting requirements to build wheel: started
+Getting requirements to build wheel: finished with status 'done'
+Preparing wheel metadata: started
+Preparing wheel metadata: finished with status 'done'
+Building wheels for collected packages: black
+Building wheel for black (PEP 517): started
+Building wheel for black (PEP 517): finished with status 'done'
+Created wheel for black: filename=black-20.8b1-py3-none-any.whl size=124184 sha256=8f3a8b703e813b5b81cf2c1ec085934a7ee56f86f634b516db109a648e64cd60
+Stored in directory: /tmp/pip-ephem-wheel-cache-1lnr2ynt/wheels/95/a4/59/10cd5378d52f92cdb45025f040e4686e10ae5217961c25fd66
+Successfully built black
+Installing collected packages: black
+Successfully installed black-20.8b1
+Collecting bleach==3.3.0
+Downloading bleach-3.3.0-py2.py3-none-any.whl (283 kB)
+Installing collected packages: bleach
+Attempting uninstall: bleach
+Found existing installation: bleach 3.2.1
+Uninstalling bleach-3.2.1:
+Successfully uninstalled bleach-3.2.1
+Successfully installed bleach-3.3.0
+Collecting boto3==1.17.6
+Downloading boto3-1.17.6-py2.py3-none-any.whl (130 kB)
+Installing collected packages: boto3
+Successfully installed boto3-1.17.6
+Collecting botocore==1.20.6
+Downloading botocore-1.20.6-py2.py3-none-any.whl (7.2 MB)
+Installing collected packages: botocore
+Successfully installed botocore-1.20.6
+Collecting bump2version==1.0.1
+Downloading bump2version-1.0.1-py2.py3-none-any.whl (22 kB)
+Installing collected packages: bump2version
+Successfully installed bump2version-1.0.1
+Collecting bumpversion==0.6.0
+Downloading bumpversion-0.6.0-py2.py3-none-any.whl (8.4 kB)
+Installing collected packages: bumpversion
+Successfully installed bumpversion-0.6.0
+Collecting cachetools==4.2.1
+Downloading cachetools-4.2.1-py3-none-any.whl (12 kB)
+Installing collected packages: cachetools
+Attempting uninstall: cachetools
+Found existing installation: cachetools 4.2.0
+Uninstalling cachetools-4.2.0:
+Successfully uninstalled cachetools-4.2.0
+Successfully installed cachetools-4.2.1
+Requirement already satisfied: certifi==2020.12.5 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (2020.12.5)
+Requirement already satisfied: certipy==0.1.3 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.1.3)
+Collecting cffi==1.14.5
+Downloading cffi-1.14.5-cp38-cp38-manylinux1_x86_64.whl (411 kB)
+Installing collected packages: cffi
+Attempting uninstall: cffi
+Found existing installation: cffi 1.14.4
+Uninstalling cffi-1.14.4:
+Successfully uninstalled cffi-1.14.4
+Successfully installed cffi-1.14.5
+Requirement already satisfied: chardet==3.0.4 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (3.0.4)
+Requirement already satisfied: click==7.1.2 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (7.1.2)
+Collecting cloudpickle==1.6.0
+Downloading cloudpickle-1.6.0-py3-none-any.whl (23 kB)
+Installing collected packages: cloudpickle
+Successfully installed cloudpickle-1.6.0
+Requirement already satisfied: colorama==0.4.4 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.4.4)
+Requirement already satisfied: commonmark==0.9.1 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.9.1)
+Collecting configparser==5.0.1
+Downloading configparser-5.0.1-py3-none-any.whl (22 kB)
+Installing collected packages: configparser
+Successfully installed configparser-5.0.1
+Collecting coverage==5.4
+Downloading coverage-5.4-cp38-cp38-manylinux2010_x86_64.whl (245 kB)
+Installing collected packages: coverage
+Successfully installed coverage-5.4
+Collecting cryptography==3.4.4
+Downloading cryptography-3.4.4-cp36-abi3-manylinux2014_x86_64.whl (3.2 MB)
+Installing collected packages: cryptography
+Attempting uninstall: cryptography
+Found existing installation: cryptography 3.3.1
+Uninstalling cryptography-3.3.1:
+Successfully uninstalled cryptography-3.3.1
+Successfully installed cryptography-3.4.4
+Requirement already satisfied: csscompressor==0.9.5 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.9.5)
+Requirement already satisfied: daiquiri==3.0.0 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (3.0.0)
+Requirement already satisfied: decorator==4.4.2 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (4.4.2)
+Requirement already satisfied: defusedxml==0.6.0 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.6.0)
+Requirement already satisfied: delegator.py==0.1.1 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.1.1)
+Collecting deprecated==1.2.11
+Downloading Deprecated-1.2.11-py2.py3-none-any.whl (9.1 kB)
+Installing collected packages: deprecated
+Successfully installed deprecated-1.2.11
+Requirement already satisfied: distlib==0.3.1 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.3.1)
+Requirement already satisfied: distro==1.5.0 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (1.5.0)
+Collecting docstring-parser==0.7.3
+Downloading docstring_parser-0.7.3.tar.gz (13 kB)
+Installing build dependencies: started
+Installing build dependencies: finished with status 'done'
+Getting requirements to build wheel: started
+Getting requirements to build wheel: finished with status 'done'
+Preparing wheel metadata: started
+Preparing wheel metadata: finished with status 'done'
+Building wheels for collected packages: docstring-parser
+Building wheel for docstring-parser (PEP 517): started
+Building wheel for docstring-parser (PEP 517): finished with status 'done'
+Created wheel for docstring-parser: filename=docstring_parser-0.7.3-py3-none-any.whl size=19230 sha256=38da7cb99fa754a33d8ee795f868b5c10e2078d0dd07579c5b1901ee56dfa300
+Stored in directory: /tmp/pip-ephem-wheel-cache-04adnjil/wheels/ce/24/c5/20e7ab5fee45d176ff81a87f73cc8bb4cfca9f28e56c96d62c
+Successfully built docstring-parser
+Installing collected packages: docstring-parser
+Successfully installed docstring-parser-0.7.3
+Collecting docutils==0.16
+Downloading docutils-0.16-py2.py3-none-any.whl (548 kB)
+Installing collected packages: docutils
+Successfully installed docutils-0.16
+Collecting elyra==2.0.1
+Downloading elyra-2.0.1-py3-none-any.whl (230 kB)
+Installing collected packages: elyra
+Successfully installed elyra-2.0.1
+Requirement already satisfied: entrypoints==0.3 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (0.3)
+Requirement already satisfied: filelock==3.0.12 in /opt/app-root/lib/python3.8/site-packages (from -r /tmp/requirements_micropipenv-y94_kz4e.txt (line 2)) (3.0.12)
+Collecting flake8==3.8.4
+Downloading flake8-3.8.4-py2.py3-none-any.whl (72 kB)
+Installing collected packages: flake8
+Successfully installed flake8-3.8.4
+Collecting gitdb==4.0.5
+Downloading gitdb-4.0.5-py3-none-any.whl (63 kB)
+Installing collected packages: gitdb
+Successfully installed gitdb-4.0.5
+Collecting gitpython==3.1.13
+Downloading GitPython-3.1.13-py3-none-any.whl (159 kB)
+Installing collected packages: gitpython
+Successfully installed gitpython-3.1.13
+Collecting google-api-core==1.26.0
+Downloading google_api_core-1.26.0-py2.py3-none-any.whl (92 kB)
+Installing collected packages: google-api-core
+Successfully installed google-api-core-1.26.0
+Collecting google-auth==1.26.1
+Downloading google_auth-1.26.1-py2.py3-none-any.whl (116 kB)
+Installing collected packages: google-auth
+Attempting uninstall: google-auth
+Found existing installation: google-auth 1.24.0
+Uninstalling google-auth-1.24.0:
+Successfully uninstalled google-auth-1.24.0
+Successfully installed google-auth-1.26.1
+Collecting google-cloud-core==1.6.0
+Downloading google_cloud_core-1.6.0-py2.py3-none-any.whl (28 kB)
+Installing collected packages: google-cloud-core
+Successfully installed google-cloud-core-1.6.0
+Collecting google-cloud-storage==1.36.0
+Downloading google_cloud_storage-1.36.0-py2.py3-none-any.whl (97 kB)
+Installing collected packages: google-cloud-storage
+Successfully installed google-cloud-storage-1.36.0
+Collecting google-crc32c==1.1.2
+Downloading google_crc32c-1.1.2-cp38-cp38-manylinux2014_x86_64.whl (38 kB)
+Installing collected packages: google-crc32c
+Successfully installed google-crc32c-1.1.2
+Collecting google-resumable-media==1.2.0
+Downloading google_resumable_media-1.2.0-py2.py3-none-any.whl (75 kB)
+Installing collected packages: google-resumable-media
+Successfully installed google-resumable-media-1.2.0

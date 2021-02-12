@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 boto3 = "==1.17.6"
 notebook = ">=6.0.2"
+ipywidgets = "==7.6.3"
+widgetsnbextension = "==3.5.1"
 jupyterhub = "==1.1.0"
 jupyterlab = ">=3.0.0"
 jupyterlab-requirements = "*"
