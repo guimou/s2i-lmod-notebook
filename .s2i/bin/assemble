@@ -14,9 +14,6 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
 # Also activate ipywidgets/bokeh extension for JupyterLab.
 
-jupyter labextension install @jupyter-widgets/jupyterlab-manager@3.0 --no-build
-jupyter labextension install @bokeh/jupyter_bokeh --no-build
-
 jupyter lab build
 
 # Enable bokeh extension also for single notebooks
