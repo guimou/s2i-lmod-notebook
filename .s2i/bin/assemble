@@ -4,10 +4,6 @@ set -x
 
 set -eo pipefail
 
-# Install Lua
-sudo yum install lua
-
-
 # Execute original assemble script.
 
 /opt/app-root/builder/assemble
