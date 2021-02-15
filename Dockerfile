@@ -36,9 +36,9 @@ ENV JUPYTER_ENABLE_LAB="true" \
     THOTH_PROVENANCE_CHECK="0"
 
 # Copying in override assemble/run scripts
-COPY upload/scripts /tmp/scripts
+COPY .s2i/bin /tmp/scripts
 # Copying in source code
-COPY upload/src /tmp/src
+COPY . /tmp/src
 # Change file ownership to the assemble user. Builder image must support chown command.
 WORKDIR /opt/app-root/src
 RUN chown -R 1001:0 /tmp/scripts /tmp/src
