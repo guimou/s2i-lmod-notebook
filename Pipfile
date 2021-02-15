@@ -21,6 +21,7 @@ supervisor = "==4.1.0"
 elyra = "==2.0.1"
 jupyterlmod = "==2.0.2"
 matplotlib = "==3.3.4"
+jupyterlab-git = "==0.30.0b1"
 
 [requires]
 python_version = "3.8"

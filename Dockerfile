@@ -26,7 +26,8 @@ RUN ./configure --prefix=/opt/apps --with-fastTCLInterp=no && \
     make install
 
 # Cleanup
-RUN rm -rf /build
+RUN rm -rf /build && \
+    ln -s /opt/apps/lmod/lmod/init/profile /etc/profile.d/z00_lmod.sh
 
 ENV JUPYTER_ENABLE_LAB="true" \
     CRIO_RUNTIME="true" \
