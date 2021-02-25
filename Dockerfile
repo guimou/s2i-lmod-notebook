@@ -1,4 +1,5 @@
-FROM quay.io/guimou/s2i-minimal-notebook-f32:0.0.1
+#FROM quay.io/guimou/s2i-minimal-notebook-f32:0.0.1
+FROM s2i-minimal-notebook-f33-py39:0.0.1
 
 USER root
 
@@ -34,15 +35,19 @@ ENV JUPYTER_ENABLE_LAB="true" \
     ENABLE_PIPENV="1" \
     THOTH_ADVISE="0" \
     THOTH_DRY_RUN="0" \
-    THOTH_PROVENANCE_CHECK="0"
+    THOTH_PROVENANCE_CHECK="0" \
+    USER=rstudio
 
 # Copying in override assemble/run scripts
 COPY .s2i/bin /tmp/scripts
 # Copying in source code
 COPY . /tmp/src
+# Copy custom launch script
+COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
+COPY jupyter_notebook_config.py RStudio_logo_flat.svg Visual_Studio_Code_1.35_icon.svg /opt/app-root/etc/
 # Change file ownership to the assemble user. Builder image must support chown command.
 WORKDIR /opt/app-root/src
-RUN chown -R 1001:0 /tmp/scripts /tmp/src
+RUN chown -R 1001:0 /tmp/scripts /tmp/src /opt/app-root/bin/start-singleuser.sh
 USER 1001
 RUN /tmp/scripts/assemble
 CMD /tmp/scripts/run
