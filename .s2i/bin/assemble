@@ -8,10 +8,15 @@ set -eo pipefail
 
 /opt/app-root/builder/assemble
 
+# Enable Lmod and EasyBuild
+source /opt/apps/lmod/lmod/init/profile
+module use /opt/apps/easybuild/modules/all
+
 # Activate ipywidgets extension.
 
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
 jupyter labextension install jupyterlab-lmod
+jupyter labextension install @jupyterlab/server-proxy@3.0.0-rc.1
 
 # Also activate ipywidgets/bokeh extension for JupyterLab.
 

@@ -17,14 +17,13 @@ jupyterlab = ">=3.0.0"
 jupyterlab-requirements = "*"
 jupyter_kernel_gateway = "==2.4.0"
 jupyter-nbrequirements = "*"
+jupyter-server-proxy = "==3.0.0rc1"
 supervisor = "==4.1.0"
-elyra = "==2.0.1"
 jupyterlmod = "==2.0.2"
 matplotlib = "==3.3.4"
-jupyterlab-git = "==0.30.0b1"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
 
 [pipenv]
 allow_prereleases = true
