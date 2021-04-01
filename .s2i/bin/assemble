@@ -15,8 +15,10 @@ module use /opt/apps/easybuild/modules/all
 # Activate ipywidgets extension.
 
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
-jupyter labextension install jupyterlab-lmod
-jupyter labextension install @jupyterlab/server-proxy@3.0.0-rc.1
+
+# Enable extensions
+jupyter labextension install /tmp/jupyterlab-lmod-0.8.2.tgz
+jupyter labextension install @jupyterlab/server-proxy@3.0.2
 
 # Also activate ipywidgets/bokeh extension for JupyterLab.
 

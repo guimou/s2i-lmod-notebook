@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="630.95" height="590.83" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>Google Refine logo</title>
+ <defs>
+  <clipPath id="clipPath4318-1">
+   <path d="m0 1090.7h612v-1090.7h-612v1090.7z"/>
+  </clipPath>
+  <clipPath id="clipPath4326-3">
+   <path d="m160.8 1054.5h272.19v-172.46h-272.19v172.46z"/>
+  </clipPath>
+  <clipPath id="clipPath4342-0">
+   <path d="m107.76 1036.5h158.89v-106.76h-158.89v106.76z"/>
+  </clipPath>
+  <clipPath id="clipPath4358-1">
+   <path d="m26.438 1007.9h467.32v-243.86h-467.32v243.86z"/>
+  </clipPath>
+  <clipPath id="clipPath4374-9">
+   <path d="m273.94 774.95h210.15v-95.281h-210.15v95.281z"/>
+  </clipPath>
+  <clipPath id="clipPath4390-3">
+   <path d="m31.298 985.16h48.305v-198.64h-48.305v198.64z"/>
+  </clipPath>
+  <clipPath id="clipPath4406-2">
+   <path d="m23.055 1075.6h203.54v-46.41h-203.54v46.41z"/>
+  </clipPath>
+  <clipPath id="clipPath4422-1">
+   <path d="m279.43 923.68h149.95v-117.35h-149.95v117.35z"/>
+  </clipPath>
+  <clipPath id="clipPath4438-6">
+   <path d="m128.13 835.58h26.543v-105h-26.543v105z"/>
+  </clipPath>
+  <clipPath id="clipPath4454-7">
+   <path d="m213.16 781.58h78.444v-80.179h-78.444v80.179z"/>
+  </clipPath>
+  <clipPath id="clipPath4470-1">
+   <path d="m86.315 908.9h294.98v-289.72h-294.98v289.72z"/>
+  </clipPath>
+  <clipPath id="clipPath4494-2">
+   <path d="m120.51 689.47h40.439v-73.733h-40.439v73.733z"/>
+  </clipPath>
+  <clipPath id="clipPath4514-9">
+   <path d="m415.58 953.88h92.88v-174.82h-92.88v174.82z"/>
+  </clipPath>
+  <linearGradient id="linearGradient4304" x2="1" gradientTransform="matrix(-130.93 -428.24 -428.24 130.93 303.69 1036.2)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#b1dfff" offset="0"/>
+   <stop stop-color="#0fabff" offset=".60001"/>
+   <stop stop-color="#0089cc" offset="1"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Google Refine logo</dc:title>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Google Inc.</dc:title>
+     </cc:Agent>
+    </dc:creator>
+    <cc:license rdf:resource="http://code.google.com/p/google-refine/source/browse/trunk/LICENSE.txt"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-75.956 -319.8)">
+  <g transform="matrix(1.25 0 0 -1.25 59.257 1676.2)">
+   <path d="m24.548 1010.2c0.596-0.978 1.042-1.477 1.042-1.477s90.627-382.26 97.767-385.58c9.132-4.254 103.87 33.179 193.74 70.611 90.085 37.522 175.27 75.045 164.43 70.581l13.781 10.037 1.501 1.462c22.942 13.862 9.043 56.704 9.043 56.704l-97.422 130.22-175.82 95.228-172.05 17.85c-48.803-36.498-39.627-59.748-36.014-65.635" fill="url(#linearGradient4304)"/>
+   <g clip-path="url(#clipPath4318-1)">
+    <g clip-path="url(#clipPath4326-3)" opacity=".75">
+     <g transform="translate(236.06 1054.5)">
+      <path d="m0 0-75.259-11.844 115.53-106.3 156.66-54.31-25.768 81.568-171.16 90.884z" fill="#fff"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4342-0)" opacity=".75">
+     <g transform="translate(152 1036.5)">
+      <path d="M 0,0 -44.236,-86.497 114.657,-106.755 0,0 z" fill="#fff"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4358-1)" opacity=".78999">
+     <g transform="translate(493.76 776.04)">
+      <path d="m0 0s-163.45 22.99-246.38 67.796c-82.926 44.812-103.03 60.428-220.94 164.06l5.9-24.781s106.19-105.01 183.77-142.43c77.575-37.42 185.15-66.636 266.15-76.65l11.507 12.007z" fill="#b5def6"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4374-9)" opacity=".60001">
+     <g transform="translate(427.86 774.95)">
+      <path d="m0 0c9.036-0.769 8.354-1.114 56.223-10.354l-210.15-84.927 153.92 95.281z" fill="#b5def6"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4390-3)" opacity=".60001">
+     <g transform="translate(72.036 948.44)">
+      <path d="m0 0c-2.839 5.854-40.738 36.722-40.738 36.722l48.305-198.64" fill="#b5def6"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4406-2)" opacity=".75">
+     <g transform="translate(226.59 1057.5)">
+      <path d="m0 0-165.07 18.018s-33.538-23.621-38.469-46.414l203.54 28.396z" fill="#fff"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4422-1)" opacity=".75">
+     <g transform="translate(429.38 871.95)">
+      <path d="M 0,0 -149.953,51.734 -57.947,-65.618 0,0 z" fill="#fff"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4438-6)" opacity=".46001">
+     <g transform="translate(154.67 835.58)">
+      <path d="M 0,0 -26.543,-80.113 -21.61,-105 0,0 z" fill="#fff"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4454-7)" opacity=".35001">
+     <g transform="translate(291.6 781.58)">
+      <path d="m 0,0 -78.443,-80.179 15.509,3.761 L 0,0 z" fill="#fff"/>
+     </g>
+    </g>
+    <g clip-path="url(#clipPath4470-1)" opacity=".8">
+     <g transform="translate(381.29 753.57)">
+      <path d="m0 0c-1.525 2.578-207.8-84.28-207.8-84.28l26.511 27.74 23.207 113.6-0.078-0.08 0.037 0.169-80.609-83.331-7.91-37.553s-44.889 219.27-47.879 219.07c-2.991-0.198 9.936-197.08 9.936-197.08s25.212-90.83 25.55-91.532l-0.369-0.691c0.212-0.046 0.422-0.063 0.621-0.04 0.085-0.129 0.174-0.262 0.292-0.38l0.313 0.59c0.764 0.117 89.956 30.637 89.956 30.637s169.75 100.59 168.22 103.17" fill="#b5def6"/>
+     </g>
+    </g>
+    <g transform="translate(229.58 1038.5)">
+     <path d="m0 0c-15.76 2.611-29.876-3.352-31.525-13.315-1.579-9.531 8.837-19.254 23.542-22.365 0.186-4.086 4.978-8.018 11.452-9.089 7.061-1.171 13.382 1.499 14.122 5.961 0.292 1.756-0.351 3.517-1.632 5.091 5.22 2.438 8.813 6.238 9.59 10.954 1.655 9.965-9.79 20.156-25.549 22.763" fill="#fff"/>
+    </g>
+    <g transform="translate(27.913 986.1)">
+     <path d="m0 0s23.08-21.809 47.215-42.748c24.139-20.94-46.274 32.904-48.691 37.025" fill="#0988c9"/>
+    </g>
+    <g clip-path="url(#clipPath4494-2)" opacity=".8">
+     <g transform="translate(130.84 615.74)">
+      <path d="M 0,0 22.81,34.131 5.783,14.161 30.108,73.732 -3.891,12.177 -6.559,60.954 -10.331,0.518 0,0 z" fill="#fff"/>
+     </g>
+    </g>
+    <g transform="translate(61.953 1085.1)">
+     <path d="m0 0c-2.251 0-4.271-0.623-6.005-1.85-22.572-16.048-36.33-32.553-40.909-49.067-4.07-14.68 0.351-25.281 1.804-28.764 0.026-0.061 0.05-0.12 0.073-0.175 2.202-9.575 24.165-102.03 46.464-192.83 13.567-55.244 24.702-99.483 33.095-131.49 4.975-18.971 9.02-33.763 12.025-43.967 5.33-18.099 6.95-21.399 11.555-23.541 1.398-0.651 2.938-0.983 4.568-0.983 3.918 0 11.21 0 186.36 71.06 74.253 30.124 172.19 70.533 174.61 71.929 2.159 1.246 6.883 5.252 14.048 11.911 10.459 8.116 16.735 21.924 18.16 39.979 1.049 13.296-0.79 24.881-1.542 27.377-0.633 2.101-0.633 2.101-16.93 23.947-8.101 10.859-19.368 25.908-33.487 44.727-24.034 32.035-48.336 64.333-48.579 64.655l-1.328 1.765-1.949 1.035-178.17 94.697-1.665 0.884-1.873 0.214c-27.094 3.087-162.64 18.486-170.32 18.486m0-9.937c7.511 0 169.2-18.422 169.2-18.422l178.17-94.696s97.048-128.98 97.422-130.22c0.809-2.685 6.766-41.631-13.521-56.89 0 0-10.27-9.563-12.598-10.906-2.302-1.329-341.36-141.66-356-141.66-0.169 0-0.296 0.018-0.378 0.056-7.14 3.32-96.845 381.11-97.768 385.58-0.586 2.842-18.042 29.266 35.212 67.129 0.022 0.016 0.111 0.023 0.264 0.023" fill="#0988c9"/>
+    </g>
+    <g clip-path="url(#clipPath4514-9)" opacity=".75">
+     <g transform="translate(415.58 953.87)">
+      <path d="m0 0 90.854-121.28s8.269-36.543-8.607-53.531l-82.247 174.82z" fill="#fff"/>
+     </g>
+    </g>
+    <g transform="translate(484.08 764.03)">
+     <path d="m0 0s-43.743 4.662-66.581 10.92c-22.843 6.257 20.199-9.314 63.693-13.893" fill="#0988c9"/>
+    </g>
+    <g transform="translate(120.24 628.82)">
+     <path d="m0 0c2.207 3.001-0.022-7.418 7.543-5.571 7.564 1.847-4.215-5.152-4.714-5.109-0.497 0.044-5.802 3.959-5.821 4.462-0.018 0.504 0.784 3.218 2.992 6.218" fill="#0e89cb"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

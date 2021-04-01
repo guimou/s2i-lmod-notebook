@@ -38,16 +38,24 @@ ENV JUPYTER_ENABLE_LAB="true" \
     THOTH_PROVENANCE_CHECK="0" \
     USER=rstudio
 
+# Copying custom packages
+COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.0.0rc1-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl /tmp/
+COPY ./packages/jupyterlmodlauncher /tmp/jupyterlmodlauncher
+# Copying icons
+# COPY ./icons/*.svg /opt/app-root/share/icons/hicolor/scalable/apps/ 
 # Copying in override assemble/run scripts
 COPY .s2i/bin /tmp/scripts
 # Copying in source code
 COPY . /tmp/src
 # Copy custom launch script
 COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
-COPY jupyter_notebook_config.py RStudio_logo_flat.svg Visual_Studio_Code_1.35_icon.svg /opt/app-root/etc/
+COPY jupyter_notebook_config.py /opt/app-root/etc/
 # Change file ownership to the assemble user. Builder image must support chown command.
 WORKDIR /opt/app-root/src
 RUN chown -R 1001:0 /tmp/scripts /tmp/src /opt/app-root/bin/start-singleuser.sh
 USER 1001
-RUN /tmp/scripts/assemble
+RUN pip install /tmp/jupyter_server_proxy-3.0.0rc1-py3-none-any.whl && \
+    pip install /tmp/jupyterlmod-2.0.2-py3-none-any.whl && \
+    pip install /tmp/jupyterlmodlauncher && \
+    /tmp/scripts/assemble
 CMD /tmp/scripts/run
