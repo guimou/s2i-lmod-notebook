@@ -1,5 +1,5 @@
 #FROM quay.io/guimou/s2i-minimal-notebook-f32:0.0.1
-FROM s2i-minimal-notebook-f33-py39:0.0.1
+FROM s2i-minimal-notebook-f32-py38:0.0.1
 
 USER root
 
