@@ -5,7 +5,7 @@ USER root
 
 # Install packages
 
-RUN dnf -y install xz iproute pam-devel ant lua lua-devel lua-posix lua-filesystem tcl python-keyring && \
+RUN dnf -y install xz iproute pam-devel ant lua lua-devel lua-posix lua-filesystem tcl python-keyring rdma-core-devel && \
     rpm -ivh https://kojipkgs.fedoraproject.org/packages/http-parser/2.9.4/4.eln109/x86_64/http-parser-2.9.4-4.eln109.x86_64.rpm && \
     dnf -y update && \
     dnf clean all
