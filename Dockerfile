@@ -1,21 +1,27 @@
-#FROM quay.io/guimou/s2i-minimal-notebook-f32:0.0.1
-FROM s2i-minimal-notebook-f32-py38:0.0.1
+FROM quay.io/thoth-station/s2i-minimal-py38-notebook:latest
 
 USER root
 
 # Install packages
 
-RUN dnf -y install xz iproute pam-devel ant lua lua-devel lua-posix lua-filesystem tcl python-keyring rdma-core-devel && \
-    rpm -ivh https://kojipkgs.fedoraproject.org/packages/http-parser/2.9.4/4.eln109/x86_64/http-parser-2.9.4-4.eln109.x86_64.rpm && \
-    dnf -y update && \
-    dnf clean all
+RUN yum -y update && \
+    yum -y install iproute nano lua \
+    http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/pam-1.3.1-15.el8.x86_64.rpm \
+    http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/pam-devel-1.3.1-15.el8.x86_64.rpm \
+    http://mirror.centos.org/centos/8-stream/AppStream/x86_64/os/Packages/ant-lib-1.10.5-1.module_el8.0.0+47+197dca37.noarch.rpm \
+    http://mirror.centos.org/centos/8-stream/AppStream/x86_64/os/Packages/ant-1.10.5-1.module_el8.0.0+47+197dca37.noarch.rpm \
+    http://mirror.centos.org/centos/8-stream/PowerTools/x86_64/os/Packages/lua-devel-5.3.4-11.el8.x86_64.rpm \
+    http://mirror.centos.org/centos/8-stream/PowerTools/x86_64/os/Packages/lua-posix-33.3.1-9.el8.x86_64.rpm \
+    http://mirror.centos.org/centos/8-stream/PowerTools/x86_64/os/Packages/lua-filesystem-1.6.3-7.el8.x86_64.rpm && \
+    yum -y clean all && \
+    rm -rf /var/cache/yum
 
 # Install LMod
 RUN mkdir -p /build
 WORKDIR /build
 
 # Build LMOD
-ENV LMOD_VER 8.4.20
+ENV LMOD_VER 8.5.9
 
 RUN curl -LO http://github.com/TACC/Lmod/archive/${LMOD_VER}.tar.gz && \
     mv /build/${LMOD_VER}.tar.gz /build/Lmod-${LMOD_VER}.tar.gz && \
@@ -39,7 +45,7 @@ ENV JUPYTER_ENABLE_LAB="true" \
     USER=rstudio
 
 # Copying custom packages
-COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.0.0rc1-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl /tmp/
+COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl /tmp/
 COPY ./packages/jupyterlmodlauncher /tmp/jupyterlmodlauncher
 # Copying icons
 # COPY ./icons/*.svg /opt/app-root/share/icons/hicolor/scalable/apps/ 
@@ -54,7 +60,7 @@ COPY jupyter_notebook_config.py /opt/app-root/etc/
 WORKDIR /opt/app-root/src
 RUN chown -R 1001:0 /tmp/scripts /tmp/src /opt/app-root/bin/start-singleuser.sh
 USER 1001
-RUN pip install /tmp/jupyter_server_proxy-3.0.0rc1-py3-none-any.whl && \
+RUN pip install /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
     pip install /tmp/jupyterlmod-2.0.2-py3-none-any.whl && \
     pip install /tmp/jupyterlmodlauncher && \
     /tmp/scripts/assemble

@@ -1,13 +1,13 @@
 host: khemenu.thoth-station.ninja
-tls_verify: true
+tls_verify: false
 requirements_format: pipenv
 
 runtime_environments:
-  - name: f33
+  - name: python38
     operating_system:
-      name: fedora
-      version: "33"
-    python_version: "3.9"
+      name: ubi8
+      version: "8"
+    python_version: "3.8"
     recommendation_type: latest
 
 managers:
