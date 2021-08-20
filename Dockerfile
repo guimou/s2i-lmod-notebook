@@ -59,8 +59,8 @@ COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
 COPY jupyter_notebook_config.py /opt/app-root/etc/
 
 # Create default paths for RStudio (instead of custom config)
-RUN mkdir -p -m777 /var/lib/rstudio-server
-RUN mkdir -p -m777 /var/run/rstudio-server
+RUN mkdir -p -m1777 /var/lib/rstudio-server
+RUN mkdir -p -m1777 /var/run/rstudio-server
 
 # Change file ownership to the assemble user. Builder image must support chown command.
 WORKDIR /opt/app-root/src

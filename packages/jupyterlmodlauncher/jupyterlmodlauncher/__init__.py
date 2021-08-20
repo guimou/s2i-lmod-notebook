@@ -41,7 +41,7 @@ def setup_rstudio():
             "--auth-none=1",
             "--www-frame-origin=same",
             "--www-address=127.0.0.1",
-            "--server-data-dir=/opt/app-root/rstudio-server",
+            "--server-data-dir=/var/run/rstudio-server",
             "--server-daemonize=0",
             "--server-user=rstudio-server",
             f"--server-working-dir={working_dir}"
