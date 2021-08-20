@@ -42,7 +42,8 @@ ENV JUPYTER_ENABLE_LAB="true" \
     THOTH_ADVISE="0" \
     THOTH_DRY_RUN="0" \
     THOTH_PROVENANCE_CHECK="0" \
-    USER=rstudio
+#    USER=rstudio \
+    RSESSION_PROXY_RSTUDIO_1_4="1"
 
 # Copying custom packages
 COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl /tmp/
@@ -67,6 +68,7 @@ WORKDIR /opt/app-root/src
 RUN chown -R 1001:0 /tmp/scripts /tmp/src /opt/app-root/bin/start-singleuser.sh
 USER 1001
 RUN pip install /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
+    pip install pip install jupyter-rsession-proxy==1.4 && \
     pip install /tmp/jupyterlmod-2.0.2-py3-none-any.whl && \
     pip install /tmp/jupyterlmodlauncher && \
     /tmp/scripts/assemble

@@ -15,7 +15,6 @@ setuptools.setup(
     entry_points={
         'jupyter_serverproxy_servers': [
             'code-server = jupyterlmodlauncher:setup_codeserver',
-            'rstudio = jupyterlmodlauncher:setup_rstudio',
             'openrefine = jupyterlmodlauncher:setup_openrefine',
         ]
     },
