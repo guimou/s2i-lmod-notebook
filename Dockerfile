@@ -47,8 +47,7 @@ ENV JUPYTER_ENABLE_LAB="true" \
 # Copying custom packages
 COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl /tmp/
 COPY ./packages/jupyterlmodlauncher /tmp/jupyterlmodlauncher
-# Copying icons
-# COPY ./icons/*.svg /opt/app-root/share/icons/hicolor/scalable/apps/ 
+
 # Copying in override assemble/run scripts
 COPY .s2i/bin /tmp/scripts
 # Copying in source code

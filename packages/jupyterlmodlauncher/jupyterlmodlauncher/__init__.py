@@ -1,6 +1,4 @@
 """
-Return config on servers to start for codeserver
-
 See https://jupyter-server-proxy.readthedocs.io/en/latest/server-process.html
 for more information.
 """
@@ -76,41 +74,15 @@ def get_icon_path():
     )
 
 def setup_rstudio():
-    def _get_env(port):
-        return dict(USER=getpass.getuser())
-
-    def db_config():
-        '''
-        Create a temporary directory to hold rserver's database, and create
-        the configuration file rserver uses to find the database.
-        https://docs.rstudio.com/ide/server-pro/latest/database.html
-        https://github.com/rstudio/rstudio/tree/v1.4.1103/src/cpp/server/db
-        '''
-        # use mkdtemp() so the directory and its contents don't vanish when
-        # we're out of scope
-        db_dir = tempfile.mkdtemp()
-        # create the rserver database config
-        db_conf = dedent("""
-            provider=sqlite
-            directory={directory}
-        """).format(directory=db_dir)
-        f = tempfile.NamedTemporaryFile(mode='w', delete=False, dir=db_dir)
-        db_config_name = f.name
-        f.write(db_conf)
-        f.close()
-        return db_config_name
-
-    def _get_cmd(port):
+    def _rstudio_command(port):
         working_dir = os.getenv("RSTUDIO_WORKINGDIR", None)
         if working_dir is None:
             working_dir = os.getenv("JUPYTER_SERVER_ROOT", ".")
-        
-        cmd = [
-            get_rstudio_executable('rserver'),
-            '--auth-none=1',
-            '--www-frame-origin=same',
-            '--www-port=' + str(port),
-            '--www-verify-user-agent=0',
+
+        return ['rserver',
+            f'--www-port={port}',
+            "--auth-none=1",
+            "--www-frame-origin=same",
             "--www-address=127.0.0.1",
             "--server-data-dir=/opt/app-root/rstudio-server",
             "--server-daemonize=0",
@@ -118,28 +90,12 @@ def setup_rstudio():
             f"--server-working-dir={working_dir}"
         ]
 
-        # Add additional options for RStudio >= 1.4.x. Since we cannot
-        # determine rserver's version from the executable, we must use
-        # explicit configuration. In this case the environment variable
-        # RSESSION_PROXY_RSTUDIO_1_4 must be set.
-        if os.environ.get('RSESSION_PROXY_RSTUDIO_1_4', False):
-            # base_url has a trailing slash
-            cmd.append('--www-root-path={base_url}rstudio/')
-            cmd.append(f'--database-config-file={db_config()}')
-
-        return cmd
-
-    server_process = {
-        'command': _get_cmd,
+    return {
+        'command': _rstudio_command,
         'timeout': 30,
-        'environment': _get_env,
         'launcher_entry': {
             'title': 'RStudio',
-            'icon_path': get_icon_path(),
-            'enabled': False,
-
+            'icon_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), 'icons', 'rstudio.svg'),
+            'enabled': False
         }
     }
-    if os.environ.get('RSESSION_PROXY_RSTUDIO_1_4', False):
-        server_process['launcher_entry']['path_info'] = 'rstudio/auth-sign-in?appUrl=%2F'
-    return server_process
