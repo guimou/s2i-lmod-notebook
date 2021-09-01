@@ -1,4 +1,4 @@
-FROM quay.io/thoth-station/s2i-minimal-py38-notebook:latest
+FROM quay.io/thoth-station/s2i-minimal-py38-notebook:v0.0.10
 
 USER root
 
