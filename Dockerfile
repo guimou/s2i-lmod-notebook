@@ -2,8 +2,7 @@ FROM quay.io/thoth-station/s2i-minimal-py38-notebook:v0.1.0
 
 USER root
 
-# Install packages
-
+# Install needed packages
 RUN yum -y update && \
     yum -y install iproute nano lua \
     http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/pam-1.3.1-15.el8.x86_64.rpm \
@@ -16,7 +15,7 @@ RUN yum -y update && \
     yum -y clean all && \
     rm -rf /var/cache/yum
 
-# Install LMod
+# Prepare build directory
 RUN mkdir -p /build
 WORKDIR /build
 
@@ -40,30 +39,25 @@ ENV JUPYTER_ENABLE_LAB="true" \
     THOTH_ADVISE="0" \
     THOTH_DRY_RUN="0" \
     THOTH_PROVENANCE_CHECK="0" \
-    USER=rstudio \
+    USER=rstudio-server \
     LMOD_PACKAGE_PATH=/opt/apps/easybuild/
 
 # Copying custom packages
 COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl requirements.txt /tmp/
 COPY ./packages/jupyterlmodlauncher /tmp/jupyterlmodlauncher
 
-# Copying in override assemble/run scripts
-# COPY .s2i/bin /tmp/scripts
-# Copying in source code
-# COPY . /tmp/src
-# Copy custom launch script
+# Replace launch script to load module environment at start
 COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
-# COPY jupyter_notebook_config.py /opt/app-root/etc/
-# Change file ownership to the assemble user. Builder image must support chown command.
+
 WORKDIR /opt/app-root/src
-RUN chown -R 1001:0 /tmp/scripts /tmp/src /opt/app-root/bin/start-singleuser.sh
 USER 1001
+
+# Install custom packages
 RUN pip install -r /tmp/requirements.txt && \
     pip install /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
     pip install /tmp/jupyterlmod-2.0.2-py3-none-any.whl && \
     pip install /tmp/jupyterlmodlauncher && \
     jupyter labextension install /tmp/jupyterlab-lmod-0.8.2.tgz && \
-    jupyter labextension install @jupyterlab/server-proxy@3.1.0 && \
     jupyter lab build
 
 CMD source /opt/apps/lmod/lmod/init/profile && module use /opt/apps/easybuild/modules/all && /tmp/scripts/run
