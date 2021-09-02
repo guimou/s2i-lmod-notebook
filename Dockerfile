@@ -20,7 +20,7 @@ RUN mkdir -p /build
 WORKDIR /build
 
 # Build LMOD
-ENV LMOD_VER 8.5.9
+ENV LMOD_VER 8.4.20
 
 RUN curl -LO http://github.com/TACC/Lmod/archive/${LMOD_VER}.tar.gz && \
     mv /build/${LMOD_VER}.tar.gz /build/Lmod-${LMOD_VER}.tar.gz && \

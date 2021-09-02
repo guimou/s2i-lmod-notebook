@@ -1,14 +1,13 @@
 -i https://pypi.org/simple
-boto3==1.18.33
+boto3~=1.18.0
 ipywidgets==7.6.3
+notebook~=6.4.0
+jupyter_kernel_gateway~=2.4.0
 jupyter-bokeh==3.0.2
-jupyter-kernel-gateway==2.4.3
-jupyter-nbrequirements==0.7.3
-jupyterhub==1.3.0
-jupyterlab-git==0.32.2
-jupyterlab-requirements==0.10.9
-jupyterlab-widgets==1.0.0
-jupyterlab==3.1.10
+jupyterhub~=1.3.0
+jupyterlab~=3.1.0
+jupyterlab-git~=0.32.0
+jupyterlab_widgets==1.0.0
 matplotlib==3.4.2
-supervisor==4.2.2
+supervisor~=4.2.0
 widgetsnbextension==3.5.1
