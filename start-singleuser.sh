@@ -4,6 +4,9 @@ set -x
 
 set -eo pipefail
 
+# Activate Python virtualenv
+source /opt/app-root/bin/activate
+
 # Activate Easybuild modules, and activate Code-server and RStudio
 source /opt/apps/lmod/lmod/init/profile
 module use /opt/apps/easybuild/modules/all

@@ -26,7 +26,8 @@ RUN ./configure --prefix=/opt/apps --with-fastTCLInterp=no && \
     ln -s /opt/apps/lmod/lmod/init/profile /etc/profile.d/z00_lmod.sh
 
 ENV USER=rstudio-server \
-    LMOD_PACKAGE_PATH=/opt/apps/easybuild/
+    LMOD_PACKAGE_PATH=/opt/apps/easybuild/ \
+    PROMPT_COMMAND=""
 
 # Copying custom packages
 COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl requirements.txt /tmp/
