@@ -1,11 +1,11 @@
-FROM quay.io/guimou/s2i-minimal-f34-py39-notebook:v0.0.1
+FROM s2i-minimal-f34-py39-notebook:v0.0.1_custom
 
 USER root
 
 RUN yum -y update && \
     yum -y install xz iproute pam-devel ant lua lua-devel lua-posix lua-filesystem tcl python-keyring rdma-core-devel && \
     yum -y clean all && \
-    rm -rf /var/cache/yum
+    rm -rf /var/cache/dnf
 
 # Prepare build directory
 RUN mkdir -p /build
@@ -40,11 +40,15 @@ WORKDIR /opt/app-root/src
 USER 1001
 
 # Install custom packages
-RUN pip install -r /tmp/requirements.txt && \
-    pip install /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
-    pip install /tmp/jupyterlmod-2.0.2-py3-none-any.whl && \
-    pip install /tmp/jupyterlmodlauncher && \
+RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
+    pip install --no-cache-dir /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
+    pip install --no-cache-dir /tmp/jupyterlmod-2.0.2-py3-none-any.whl && \
+    pip install --no-cache-dir /tmp/jupyterlmodlauncher && \
     jupyter labextension install /tmp/jupyterlab-lmod-0.8.2.tgz && \
-    jupyter lab build
+    jupyter lab build && \
+    jupyter lab clean && \
+    npm cache clean --force && \
+    rm -rf $HOME/.cache/yarn && \
+    rm -rf $HOME/.node-gyp
 
 CMD source /opt/apps/lmod/lmod/init/profile && module use /opt/apps/easybuild/modules/all && /tmp/scripts/run
