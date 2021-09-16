@@ -4,6 +4,20 @@ set -x
 
 set -eo pipefail
 
+# Define module commands
+unalias ml 2> /dev/null || true
+ml()
+{
+  eval $($LMOD_DIR/ml_cmd "$@")
+}
+export -f ml
+
+module()
+{
+    eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+export -f module
+
 # Activate Easybuild modules
 module use /opt/apps/easybuild/modules/all
 

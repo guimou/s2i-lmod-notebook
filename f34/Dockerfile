@@ -29,12 +29,6 @@ RUN ./configure --prefix=/opt/apps --with-fastTCLInterp=no && \
 COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl requirements.txt /tmp/
 COPY ./packages/jupyterlmodlauncher /tmp/jupyterlmodlauncher
 
-# Replace launch script to load module environment at start
-COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
-
-WORKDIR /opt/app-root/src
-USER 1001
-
 # Install custom packages
 RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
     pip install --no-cache-dir /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
@@ -45,20 +39,26 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
     jupyter lab clean && \
     npm cache clean --force && \
     rm -rf $HOME/.cache/yarn && \
-    rm -rf $HOME/.node-gyp
+    rm -rf $HOME/.node-gyp && \
+    fix-permissions /opt/app-root
 
 ENV USER=rstudio-server \
-    LMOD_DIR=/opt/apps/lmod/lmod/libexec \
     MODULESHOME=/opt/apps/lmod/lmod \
+    MODULEPATH=/opt/apps/modulefiles/Linux:/opt/apps/modulefiles/Core:/opt/apps/lmod/lmod/modulefiles/Core \
+    MODULEPATH_ROOT=/opt/apps/modulefiles \
     MANPATH=/opt/apps/lmod/lmod/share/man: \
+    LMOD_DIR=/opt/apps/lmod/lmod/libexec \
     LMOD_SETTARG_FULL_SUPPORT=no \
     LMOD_PACKAGE_PATH=/opt/apps/easybuild/ \
     LMOD_VERSION=8.5.9 \
-    MODULEPATH_ROOT=/opt/apps/modulefiles \
     LMOD_ROOT=/opt/apps/lmod \
     LMOD_sys=Linux \
-    LMOD_CMD=/opt/apps/lmod/lmod/libexec/lmod \
-    BASH_FUNC_ml%%='() {  eval $($LMOD_DIR/ml_cmd "$@")    }' \
-    BASH_FUNC_module%%='() {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)    }'
+    LMOD_CMD=/opt/apps/lmod/lmod/libexec/lmod
 
-CMD module use /opt/apps/easybuild/modules/all && /tmp/scripts/run
+# Replace launch script to load module environment at start
+COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
+
+WORKDIR /opt/app-root/src
+USER 1001
+
+CMD /opt/app-root/bin/start-singleuser.sh --ip=0.0.0.0 --port=8080
