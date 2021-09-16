@@ -29,6 +29,9 @@ RUN ./configure --prefix=/opt/apps --with-fastTCLInterp=no && \
 COPY ./packages/jupyterlab-lmod-0.8.2.tgz ./packages/jupyter_server_proxy-3.1.0-py3-none-any.whl ./packages/jupyterlmod-2.0.2-py3-none-any.whl requirements.txt /tmp/
 COPY ./packages/jupyterlmodlauncher /tmp/jupyterlmodlauncher
 
+# Replace launch script to load module environment at start
+COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
+
 # Install custom packages
 RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
     pip install --no-cache-dir /tmp/jupyter_server_proxy-3.1.0-py3-none-any.whl && \
@@ -42,6 +45,9 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
     rm -rf $HOME/.node-gyp && \
     fix-permissions /opt/app-root
 
+WORKDIR /opt/app-root/src
+USER 1001
+
 ENV USER=rstudio-server \
     MODULESHOME=/opt/apps/lmod/lmod \
     MODULEPATH=/opt/apps/modulefiles/Linux:/opt/apps/modulefiles/Core:/opt/apps/lmod/lmod/modulefiles/Core \
@@ -54,11 +60,5 @@ ENV USER=rstudio-server \
     LMOD_ROOT=/opt/apps/lmod \
     LMOD_sys=Linux \
     LMOD_CMD=/opt/apps/lmod/lmod/libexec/lmod
-
-# Replace launch script to load module environment at start
-COPY start-singleuser.sh /opt/app-root/bin/start-singleuser.sh
-
-WORKDIR /opt/app-root/src
-USER 1001
 
 CMD /opt/app-root/bin/start-singleuser.sh --ip=0.0.0.0 --port=8080
