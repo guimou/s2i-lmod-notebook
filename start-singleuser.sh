@@ -4,13 +4,8 @@ set -x
 
 set -eo pipefail
 
-# Activate Python virtualenv
-source /opt/app-root/bin/activate
-
-# Activate Easybuild modules, and activate Code-server and RStudio
-source /opt/apps/lmod/lmod/init/profile
+# Activate Easybuild modules
 module use /opt/apps/easybuild/modules/all
-export LMOD_PACKAGE_PATH=/opt/apps/easybuild/
 
 # The 'start-singleuser.sh' script is invoked by JupyterHub installations.
 # Execute the 'run' script instead so everything goes through common
