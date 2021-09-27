@@ -1,9 +1,6 @@
 # See the OWNERS docs at https://go.k8s.io/owners
 
 approvers:
-  - goern
-  - harshad16
-  - pacospace
+  - guimou
 reviewers:
-  - vpavlin
-  - LaVLaS
+  - guimou

@@ -4,10 +4,22 @@ set -x
 
 set -eo pipefail
 
-# Activate Easybuild modules, and activate Code-server and RStudio
-source /opt/apps/lmod/lmod/init/profile
+# Define module commands
+unalias ml 2> /dev/null || true
+ml()
+{
+  eval $($LMOD_DIR/ml_cmd "$@")
+}
+export -f ml
+
+module()
+{
+    eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+export -f module
+
+# Activate Easybuild modules
 module use /opt/apps/easybuild/modules/all
-export LMOD_PACKAGE_PATH=/opt/apps/easybuild/
 
 # The 'start-singleuser.sh' script is invoked by JupyterHub installations.
 # Execute the 'run' script instead so everything goes through common
