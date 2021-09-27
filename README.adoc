@@ -3,6 +3,7 @@
 This is a JuypyterLab notebook image based on the generic data science notebook from the link:https://github.com/thoth-station/s2i-generic-data-science-notebook[Thoth-station project].
 
 Additions are:
+
 * LMod to be able to load modules dynamically
 * Customized version of the link:https://github.com/cmd-ntrf/jupyter-lmod[Jupyter Lmod] extension to easily manage modules from JupyterLab. Customization was made to allow for a "Featured modules" category to make it easier to sort them out.
 * Customized version of link:https://github.com/jupyterhub/jupyter-server-proxy[JupyterLab Server Proxy] to launch application directly from JupyterLab (Like VSCode, RStudio,...). Customization was made to allow icons to load properly even when module is not loaded from the start.
